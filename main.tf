@@ -11,28 +11,28 @@ module "vpc" {
 # EKS Cluster Module
 ################################################################################
 
-module "eks" {
-  source = "./modules/eks-cluster"
+# module "eks" {
+#   source = "./modules/eks-cluster"
 
-  main-region = var.main-region
-  rolearn     = var.rolearn
+#   main-region = var.main-region
+#   rolearn     = var.rolearn
 
-  vpc_id          = module.vpc.vpc_id
-  private_subnets = module.vpc.private_subnets
-}
+#   vpc_id          = module.vpc.vpc_id
+#   private_subnets = module.vpc.private_subnets
+# }
 
 ################################################################################
 # AWS Load Balancer Controller
 ################################################################################
 
-module "aws_load_balancer_controller" {
-  source = "./modules/aws-alb-controller"
+# module "aws_load_balancer_controller" {
+#   source = "./modules/aws-alb-controller"
 
-  main-region  = var.main-region
-  env_name     = var.env_name
-  cluster_name = var.cluster_name
+#   main-region  = var.main-region
+#   env_name     = var.env_name
+#   cluster_name = var.cluster_name
 
-  vpc_id            = module.vpc.vpc_id
-  oidc_provider_arn = module.eks.oidc_provider_arn
-}
+#   vpc_id            = module.vpc.vpc_id
+#   oidc_provider_arn = module.eks.oidc_provider_arn
+# }
 
